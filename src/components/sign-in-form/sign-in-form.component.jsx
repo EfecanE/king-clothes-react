@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
 import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+
 import {
   signInUserWithEmailAndPassword,
   signInWithGooglePopup,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import Button from "../button/button.component";
+
+import { UserContext } from "../../contexts/user.context";
+
 import "./sign-in-form.styles.scss";
+
 const defaultFormFields = {
   email: "",
   password: "",
@@ -15,6 +21,8 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFromFields = () => {
     setFormFields(defaultFormFields);
@@ -35,7 +43,7 @@ const SignInForm = () => {
 
     try {
       const { user } = await signInUserWithEmailAndPassword(email, password);
-      console.log(user);
+      setCurrentUser(user);
     } catch (error) {
       if (
         error.code == "auth/user-not-found" ||
