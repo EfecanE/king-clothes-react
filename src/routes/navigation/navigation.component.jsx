@@ -9,13 +9,8 @@ import { ReactComponent as KingLogo } from "../../assets/king.svg";
 import "./navigation.styles.scss";
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const signOutHandler = async () => {
-    signOutUser();
-    setCurrentUser(null);
-  }
-
+  const { currentUser } = useContext(UserContext);
+  
   return (
     <Fragment>
       <div className="navigation">
@@ -27,7 +22,7 @@ const Navigation = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span onClick={signOutHandler} className="nav-link">SIGN OUT</span>
+            <span onClick={signOutUser} className="nav-link">SIGN OUT</span>
           ) : (
             <Link className="nav-link" to="/auth">
               SIGN IN
