@@ -1,13 +1,14 @@
-import "./category-menu.styles.scss";
-import CategoryItem from "../category-item/category-item.components";
+import HomeCategoryItem from "../home-category-item/home-category-item.components";
+
+import {CategoriesContainer} from "./category-menu.styles.jsx";
 
 const CategoryMenu = ({ categories }) => {
   return (
-    <div className="categories-container">
-      {categories.map(({ title, id, imageUrl }) => (
-        <CategoryItem key={id} title={title} id={id} imageUrl={imageUrl} />
+    <CategoriesContainer>
+      {categories.map(({ title, id, imageUrl, route }) => (
+        <HomeCategoryItem key={id} title={title} id={id} imageUrl={imageUrl} route={route} />
       ))}
-    </div>
+    </CategoriesContainer>
   );
 };
 
