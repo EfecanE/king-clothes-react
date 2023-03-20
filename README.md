@@ -12,4 +12,4 @@
 * Styled Components
 * Deploying with Netlify
 
-[Live](https://stalwart-tartufo-b75b83.netlify.app/){:target="_blank"}
+<a href="https://stalwart-tartufo-b75b83.netlify.app/" target="_blank">Live</a>
