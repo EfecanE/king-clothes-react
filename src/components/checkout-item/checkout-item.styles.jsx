@@ -8,7 +8,6 @@ export const CheckoutItemContainer = styled.div`
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
-  }
 `;
 export const Name = styled.span`
   width: 23%;
