@@ -7,7 +7,7 @@
 
 * React
 * React Router
-* Context API
+* Redux
 * Firebase (Firebase Auth and Firestore)
 * Styled Components
 * Deploying with Netlify
