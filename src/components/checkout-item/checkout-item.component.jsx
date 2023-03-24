@@ -1,18 +1,32 @@
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCartItems } from "../../store/cart/cart.selector.js";
 
-import { CartContext } from "../../contexts/cart.context";
+import {
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+} from "../../store/cart/cart-action.js";
 
-import { CheckoutItemContainer, ImageContainer, RemoveButton, Name, Quantity, Arrow, Price, Value } from "./checkout-item.styles.jsx";
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  RemoveButton,
+  Name,
+  Quantity,
+  Arrow,
+  Price,
+  Value,
+} from "./checkout-item.styles.jsx";
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, quantity, price } = cartItem;
 
-  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
-    useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
-  const addCartItemHandler = () => addItemToCart(cartItem);
-  const removeCartItemHandler = () => removeItemFromCart(cartItem);
-  const clearCartItemHandler = () => clearItemFromCart(cartItem);
+  const addCartItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const removeCartItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem));
+  const clearCartItemHandler = () => dispatch(clearItemFromCart(cartItems, cartItem));
 
   return (
     <CheckoutItemContainer>
@@ -21,18 +35,12 @@ const CheckoutItem = ({ cartItem }) => {
       </ImageContainer>
       <Name>{name}</Name>
       <Quantity>
-        <Arrow onClick={removeCartItemHandler}>
-          &#10094;
-        </Arrow>
+        <Arrow onClick={removeCartItemHandler}>&#10094;</Arrow>
         <Value>{quantity}</Value>
-        <Arrow onClick={addCartItemHandler}>
-          &#10095;
-        </Arrow>
+        <Arrow onClick={addCartItemHandler}>&#10095;</Arrow>
       </Quantity>
       <Price>{price * quantity}$</Price>
-      <RemoveButton onClick={clearCartItemHandler}>
-        &#10005;
-      </RemoveButton>
+      <RemoveButton onClick={clearCartItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>
   );
 };
