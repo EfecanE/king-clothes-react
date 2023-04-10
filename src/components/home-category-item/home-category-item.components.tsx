@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { HomeCategoryContainer, BackgroundImage, HomeCategoryBody } from "./home-category-item.styles.jsx";
+import { HomeCategoryContainer, BackgroundImage, HomeCategoryBody } from "./home-category-item.styles";
 
 
 export type HomeCategoryItemProps = {

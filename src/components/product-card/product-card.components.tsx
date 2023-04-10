@@ -6,7 +6,7 @@ import { addItemToCart } from "../../store/cart/cart-action";
 
 import Button, {BUTTON_TYPE_CLASSES} from "../button/button.component";
 
-import { ProductCardContainer, Footer, Name, Price } from "./product-card.styles.jsx";
+import { ProductCardContainer, Footer, Name, Price } from "./product-card.styles";
 
 export type ProductCardProps = {
   product: {
