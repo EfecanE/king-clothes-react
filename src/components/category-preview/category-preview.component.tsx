@@ -13,7 +13,7 @@ export type CategoryPreviewProps = {
   products: {
     id: number;
     name: string;
-    imgUrl: string;
+    imageUrl: string;
     price: number;
   }[];
 };

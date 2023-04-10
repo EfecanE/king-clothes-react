@@ -4,17 +4,17 @@ import { FC } from "react";
 export type CartItemProps = {
   cartItem: {
     name: string;
-    imgUrl: string;
+    imageUrl: string;
     price: number;
     quantity: number;
   };
 };
 
 const CartItem: FC<CartItemProps> = ({ cartItem }) => {
-  const { name, imgUrl, price, quantity } = cartItem;
+  const { name, imageUrl, price, quantity } = cartItem;
   return (
     <CartItemContainer>
-      <img src={imgUrl} alt={`${name}`} />
+      <img src={imageUrl} alt={`${name}`} />
       <ItemDetails>
         <Name>{name}</Name>
         <Price>

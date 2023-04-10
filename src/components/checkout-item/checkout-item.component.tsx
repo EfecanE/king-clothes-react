@@ -23,14 +23,14 @@ export type CheckoutItemProps = {
   cartItem: {
     id: number;
     name: string;
-    imgUrl: string;
+    imageUrl: string;
     price: number;
     quantity: number;
   };
 };
 
 const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
-  const { name, imgUrl, quantity, price } = cartItem;
+  const { name, imageUrl, quantity, price } = cartItem;
 
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -42,7 +42,7 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imgUrl} alt={`${name}`} />
+        <img src={imageUrl} alt={`${name}`} />
       </ImageContainer>
       <Name>{name}</Name>
       <Quantity>
